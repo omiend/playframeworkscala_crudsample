@@ -1,0 +1,23 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index(p: Int ?= 1)
+
+GET     /createParent               controllers.Application.createParent(p: Int ?= 1)
+POST    /insertParent               controllers.Application.insertParent(p: Int ?= 1)
+GET     /editParent                 controllers.Application.editParent(p: Int ?= 1, id: Long)
+POST    /updateParent               controllers.Application.updateParent(p: Int ?= 1, id: Long)
+GET     /deleteParent               controllers.Application.deleteParent(p: Int ?= 1, id: Long)
+
+GET     /createChild                controllers.Application.createChild(p: Int ?= 1, parentId: Long)
+POST    /insertChild                controllers.Application.insertChild(p: Int ?= 1, parentId: Long)
+GET     /editChild                  controllers.Application.editChild(p: Int ?= 1, id: Long)
+POST    /updateChild                controllers.Application.updateChild(p: Int ?= 1, id: Long)
+GET     /deleteChild                controllers.Application.deleteChild(p: Int ?= 1, id: Long)
+
+GET     /initTestData               controllers.Application.initTestData(p: Int ?= 1, c: Int ?= 3)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

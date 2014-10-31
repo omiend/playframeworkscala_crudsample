@@ -1,0 +1,26 @@
+@(pager: Pager[Child], id: Long, childForm: Form[Child])(implicit flash: play.api.mvc.Flash)
+
+@import helper._
+
+@main(pager.title)(flash) {
+
+    @form(routes.Application.updateChild(pager.pageNum, id)) {
+
+        <fieldset>
+
+            @inputText(childForm("name"), '_label -> "Child name")
+            @defining(childForm("parentId")) { parentIdField =>
+                <input type="hidden" name="@parentIdField.name" id="@parentIdField.id" value="@parentIdField.value">
+            }
+
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Update this Child" class="btn primary"> or
+            <a href="@routes.Application.index(pager.pageNum)" class="btn">Cancel</a>
+        </div>
+
+    }
+
+}

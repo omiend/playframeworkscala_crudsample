@@ -1,0 +1,21 @@
+@(pager: Pager[Parent], parentForm: Form[Parent])(implicit flash: play.api.mvc.Flash)
+@import helper._
+
+@main(pager.title)(flash) {
+
+    @form(routes.Application.insertParent(pager.pageNum)) {
+
+        <fieldset>
+
+            @inputText(parentForm("name"), '_label -> "Parent name")
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" value="Create this Parent" class="btn primary"> or
+            <a href="@routes.Application.index(pager.pageNum)" class="btn">Cancel</a>
+        </div>
+
+    }
+
+}

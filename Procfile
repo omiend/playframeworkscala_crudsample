@@ -1,0 +1,1 @@
+web: target/universal/stage/bin/playframework_crud_scala -Dhttp.port=${PORT} -Ddb.default.url=${DATABASE_URL}
